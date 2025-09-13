@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="title">Nexy Studio - Visionary Digital Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --bg-light: #fdfdfd;
+            --text-dark: #e5e7eb;
+            --text-light: #111827;
+            --accent: #3b82f6; /* Electric Blue */
+            --border-dark: rgba(255, 255, 255, 0.1);
+            --border-light: rgba(0, 0, 0, 0.1);
+        }
+        html.dark {
+            background-color: var(--bg-dark);
+        }
+        html.light {
+            background-color: var(--bg-light);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .dark body {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+        .light body {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+        }
+        
+        /* Glass Header */
+        .glass-header {
+            background-color: rgba(5, 5, 5, 0.5);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-dark);
+        }
+        .light .glass-header {
+            background-color: rgba(253, 253, 253, 0.5);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        /* Animated Grid Background */
+        #hero-section {
+            position: relative;
+            overflow: hidden;
+        }
+        #hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(var(--border-dark) 1px, transparent 1px),
+                linear-gradient(to right, var(--border-dark) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: pan 60s linear infinite;
+            opacity: 0.5;
+            z-index: 0;
+        }
+        .light #hero-section::before {
+            background-image: 
+                linear-gradient(var(--border-light) 1px, transparent 1px),
+                linear-gradient(to right, var(--border-light) 1px, transparent 1px);
+        }
+        @keyframes pan {
+            0% { background-position: 0 0; }
+            100% { background-position: 400px 400px; }
+        }
+
+        /* Title Gradient */
+        .hero-gradient-text {
+            background-image: linear-gradient(to right, #3b82f6, #818cf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Animated Section Fade-in */
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Futuristic Cards */
+        .futuristic-card {
+            background: rgba(17, 24, 39, 0.3);
+            border: 1px solid var(--border-dark);
+            backdrop-filter: blur(8px);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+        .futuristic-card:hover {
+            background: rgba(17, 24, 39, 0.5);
+            border-color: var(--accent);
+        }
+        .light .futuristic-card {
+             background: rgba(255, 255, 255, 0.3);
+             border: 1px solid var(--border-light);
+        }
+        .light .futuristic-card:hover {
+             background: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Portfolio Filter/Items */
+        .portfolio-filter-btn.active {
+            color: var(--accent);
+            box-shadow: inset 0 -2px 0 0 var(--accent);
+        }
+        .portfolio-item {
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .portfolio-item.hidden {
+            transform: scale(0.95);
+            opacity: 0;
+            transition-delay: 0s !important;
+        }
+
+        /* Button Glow Effect */
+        .glow-button {
+            position: relative;
+            overflow: hidden;
+            --glow-color: var(--accent);
+        }
+        .glow-button:hover {
+             box-shadow: 0 0 15px 0px var(--glow-color);
+        }
+
+        /* Animated Underline for Nav Links */
+        .animated-link {
+            position: relative;
+        }
+        .animated-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .animated-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="glass-header sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-tighter">
+                NEXY<span class="text-blue-500">STUDIO</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-10 text-sm font-medium text-gray-300">
+                <a href="#services" class="animated-link" data-lang-key="nav_services">Services</a>
+                <a href="#portfolio" class="animated-link" data-lang-key="nav_portfolio">Portfolio</a>
+                <a href="#about" class="animated-link" data-lang-key="nav_about">About</a>
+                <a href="#contact" class="animated-link" data-lang-key="nav_contact">Contact</a>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button id="lang-toggle" class="px-3 py-1.5 text-xs font-semibold border rounded-md transition-colors hover:border-blue-500 hover:text-white dark:border-gray-700 dark:hover:border-blue-500"><span id="lang-text">EN</span></button>
+                <button id="theme-toggle" class="p-2 rounded-md transition-colors hover:bg-gray-800 dark:hover:bg-gray-800"><svg id="theme-icon-light" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg><svg id="theme-icon-dark" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg></button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6">
+        <!-- Hero Section -->
+        <section id="hero-section" class="relative text-center py-28 md:py-40">
+            <div class="relative z-10">
+                <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter">
+                    <span class="block" data-lang-key="hero_title_1">Digital Architecture.</span>
+                    <span class="hero-gradient-text block" data-lang-key="hero_title_2">Immersive Experiences.</span>
+                </h1>
+                <p class="text-base md:text-lg max-w-2xl mx-auto mb-10 text-gray-400" data-lang-key="hero_subtitle">We build the future through precision-engineered software and captivating game worlds. Your vision, our code.</p>
+                <a href="#contact" class="glow-button inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105" data-lang-key="hero_cta">Begin Collaboration</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 animated-section">
+            <div class="text-center mb-16">
+                 <h2 class="text-4xl md:text-5xl font-bold tracking-tight" data-lang-key="services_title">Core Disciplines</h2>
+                 <p class="text-md text-gray-400 mt-3 max-w-xl mx-auto" data-lang-key="services_subtitle">Specialized expertise in two key domains of digital creation.</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Software Solutions -->
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-bold tracking-tight flex items-center gap-3"><svg class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg><span data-lang-key="service_cat1_title">Enterprise Software</span></h3>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="futuristic-card p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg" data-lang-key="service1_title">Web Platforms</h4>
+                            <p class="text-gray-400 text-sm mt-1" data-lang-key="service1_desc">High-performance applications designed for growth and reliability.</p>
+                        </div>
+                        <div class="futuristic-card p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg" data-lang-key="service2_title">Cloud Architecture</h4>
+                            <p class="text-gray-400 text-sm mt-1" data-lang-key="service2_desc">Leveraging cloud infrastructure for maximum efficiency and security.</p>
+                        </div>
+                        <div class="futuristic-card p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg" data-lang-key="service3_title">UI/UX for Systems</h4>
+                            <p class="text-gray-400 text-sm mt-1" data-lang-key="service3_desc">Intuitive design for complex data and user workflows.</p>
+                        </div>
+                         <div class="futuristic-card p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg" data-lang-key="service7_title">AI & ML Integration</h4>
+                            <p class="text-gray-400 text-sm mt-1" data-lang-key="service7_desc">Embedding intelligent automation and analytics into your software.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Game Development -->
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-bold tracking-tight flex items-center gap-3"><svg class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span data-lang-key="service_cat2_title">Interactive Entertainment</span></h3>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="futuristic-card p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg" data-lang-key="service4_title">PC & Console Dev</h4>
+                            <p class="text-gray-400 text-sm mt-1" data-lang-key="service4_desc">Creating immersive games using Unreal Engine and Unity.</p>
+                        </div>
+                        <div class="futuristic-card p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg" data-lang-key="service5_title">Systems Design</h4>
+                            <p class="text-gray-400 text-sm mt-1" data-lang-key="service5_desc">Engineering compelling gameplay mechanics and systems.</p>
+                        </div>
+                        <div class="futuristic-card p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg" data-lang-key="service6_title">Art & Asset Production</h4>
+                            <p class="text-gray-400 text-sm mt-1" data-lang-key="service6_desc">3D modeling, animation, and visual effects to bring worlds to life.</p>
+                        </div>
+                         <div class="futuristic-card p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg" data-lang-key="service8_title">VR & AR Experiences</h4>
+                            <p class="text-gray-400 text-sm mt-1" data-lang-key="service8_desc">Building next-generation immersive applications for new realities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-24 animated-section">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight" data-lang-key="portfolio_title">Case Studies</h2>
+                <p class="text-md text-gray-400 mt-3" data-lang-key="portfolio_subtitle">A showcase of our engineering and creative capabilities.</p>
+            </div>
+            <div class="flex justify-center space-x-8 mb-10 text-sm font-medium text-gray-400">
+                <button class="portfolio-filter-btn pb-2 transition-colors" data-filter="all" data-lang-key="filter_all">All</button>
+                <button class="portfolio-filter-btn pb-2 transition-colors" data-filter="software" data-lang-key="filter_software">Software</button>
+                <button class="portfolio-filter-btn pb-2 transition-colors" data-filter="games" data-lang-key="filter_games">Games</button>
+            </div>
+            <div id="portfolio-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="portfolio-item group" data-category="games">
+                    <div class="relative overflow-hidden rounded-lg border border-transparent group-hover:border-blue-500 transition-all duration-300"><img src="https://placehold.co/600x400/1e293b/3b82f6?text=CYBERNETIC+ODYSSEY" alt="Game Project 1" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-4"><h3 class="font-bold" data-lang-key="project1_title">Project: Aethelred</h3><span class="text-xs text-blue-400" data-lang-key="project1_cat">Game Development</span></div></div>
+                </div>
+                <!-- Project 2 -->
+                <div class="portfolio-item group" data-category="software">
+                     <div class="relative overflow-hidden rounded-lg border border-transparent group-hover:border-blue-500 transition-all duration-300"><img src="https://placehold.co/600x400/1e293b/3b82f6?text=DATA+VISUALIZATION" alt="Software Project 1" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-4"><h3 class="font-bold" data-lang-key="project2_title">Synapse BI</h3><span class="text-xs text-blue-400" data-lang-key="project2_cat">Enterprise Software</span></div></div>
+                </div>
+                <!-- Project 3 -->
+                <div class="portfolio-item group" data-category="games">
+                     <div class="relative overflow-hidden rounded-lg border border-transparent group-hover:border-blue-500 transition-all duration-300"><img src="https://placehold.co/600x400/1e293b/3b82f6?text=STRATEGY+GAME" alt="Game Project 2" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-4"><h3 class="font-bold" data-lang-key="project3_title">Geomancer's War</h3><span class="text-xs text-blue-400" data-lang-key="project3_cat">Game Development</span></div></div>
+                </div>
+                <!-- Project 4 -->
+                <div class="portfolio-item group" data-category="software">
+                     <div class="relative overflow-hidden rounded-lg border border-transparent group-hover:border-blue-500 transition-all duration-300"><img src="https://placehold.co/600x400/1e293b/3b82f6?text=LOGISTICS+SaaS" alt="Software Project 2" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-4"><h3 class="font-bold" data-lang-key="project4_title">Nexus Logistics</h3><span class="text-xs text-blue-400" data-lang-key="project4_cat">Enterprise Software</span></div></div>
+                </div>
+                 <!-- Project 5 -->
+                <div class="portfolio-item group" data-category="games">
+                     <div class="relative overflow-hidden rounded-lg border border-transparent group-hover:border-blue-500 transition-all duration-300"><img src="https://placehold.co/600x400/1e293b/3b82f6?text=VR+SIMULATOR" alt="Game Project 3" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-4"><h3 class="font-bold" data-lang-key="project5_title">VR MedSim</h3><span class="text-xs text-blue-400" data-lang-key="project5_cat">VR/AR Experience</span></div></div>
+                </div>
+                 <!-- Project 6 -->
+                <div class="portfolio-item group" data-category="software">
+                     <div class="relative overflow-hidden rounded-lg border border-transparent group-hover:border-blue-500 transition-all duration-300"><img src="https://placehold.co/600x400/1e293b/3b82f6?text=MOBILE+BANKING" alt="Software Project 3" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div><div class="absolute bottom-0 p-4"><h3 class="font-bold" data-lang-key="project6_title">FinSecure App</h3><span class="text-xs text-blue-400" data-lang-key="project6_cat">Enterprise Software</span></div></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Us Section -->
+        <section id="about" class="py-24 animated-section">
+             <div class="max-w-3xl mx-auto text-center">
+                 <h2 class="text-4xl md:text-5xl font-bold tracking-tight" data-lang-key="about_title">The Studio</h2>
+                 <p class="text-md text-gray-400 mt-6" data-lang-key="about_p1">Nexy Studio operates at the intersection of logic and creativity. We are a collective of engineers and artists committed to building robust, high-performance digital products. Our methodology is rooted in agile development and transparent collaboration, ensuring we deliver solutions that are not only innovative but also precisely aligned with our clients' objectives.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 animated-section">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight" data-lang-key="contact_title">Initiate Contact</h2>
+                <p class="text-md text-gray-400 mt-3" data-lang-key="contact_subtitle">Let's discuss the architecture of your next project.</p>
+            </div>
+            <div class="max-w-xl mx-auto futuristic-card p-8 rounded-xl">
+                <form>
+                    <div class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium mb-2" data-lang-key="form_name_label">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors" data-lang-key="form_name_placeholder" placeholder="Your Full Name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-2" data-lang-key="form_email_label">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors" data-lang-key="form_email_placeholder" placeholder="project@email.com">
+                        </div>
+                        <button type="submit" class="w-full glow-button bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-all duration-300" data-lang-key="form_submit_button">Submit Inquiry</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t dark:border-gray-800 light:border-gray-200">
+        <div class="container mx-auto px-6 py-8 text-center text-sm text-gray-500">
+            <p>&copy; 2025 Nexy Studio. <span data-lang-key="footer_rights">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- THEME ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const lightIcon = document.getElementById('theme-icon-light');
+            const darkIcon = document.getElementById('theme-icon-dark');
+
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.classList.remove('light');
+                    lightIcon.classList.remove('hidden');
+                    darkIcon.classList.add('hidden');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    document.documentElement.classList.add('light');
+                    lightIcon.classList.add('hidden');
+                    darkIcon.classList.remove('hidden');
+                }
+            };
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            applyTheme(savedTheme);
+            themeToggle.addEventListener('click', () => {
+                const newTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+                localStorage.setItem('theme', newTheme);
+                applyTheme(newTheme);
+            });
+            
+            // --- LANGUAGE ---
+            const translations = {
+                en: {
+                    title: "Nexy Studio - Visionary Digital Engineering",
+                    nav_services: "Services", nav_portfolio: "Portfolio", nav_about: "About", nav_contact: "Contact",
+                    hero_title_1: "Digital Architecture.", hero_title_2: "Immersive Experiences.",
+                    hero_subtitle: "We build the future through precision-engineered software and captivating game worlds. Your vision, our code.",
+                    hero_cta: "Begin Collaboration",
+                    services_title: "Core Disciplines", services_subtitle: "Specialized expertise in two key domains of digital creation.",
+                    service_cat1_title: "Enterprise Software",
+                    service1_title: "Web Platforms", service1_desc: "High-performance applications designed for growth and reliability.",
+                    service2_title: "Cloud Architecture", service2_desc: "Leveraging cloud infrastructure for maximum efficiency and security.",
+                    service3_title: "UI/UX for Systems", service3_desc: "Intuitive design for complex data and user workflows.",
+                    service7_title: "AI & ML Integration", service7_desc: "Embedding intelligent automation and analytics into your software.",
+                    service_cat2_title: "Interactive Entertainment",
+                    service4_title: "PC & Console Dev", service4_desc: "Creating immersive games using Unreal Engine and Unity.",
+                    service5_title: "Systems Design", service5_desc: "Engineering compelling gameplay mechanics and systems.",
+                    service6_title: "Art & Asset Production", service6_desc: "3D modeling, animation, and visual effects to bring worlds to life.",
+                    service8_title: "VR & AR Experiences", service8_desc: "Building next-generation immersive applications for new realities.",
+                    portfolio_title: "Case Studies", portfolio_subtitle: "A showcase of our engineering and creative capabilities.",
+                    filter_all: "All", filter_software: "Software", filter_games: "Games",
+                    project1_title: "Project: Aethelred", project1_cat: "Game Development",
+                    project2_title: "Synapse BI", project2_cat: "Enterprise Software",
+                    project3_title: "Geomancer's War", project3_cat: "Game Development",
+                    project4_title: "Nexus Logistics", project4_cat: "Enterprise Software",
+                    project5_title: "VR MedSim", project5_cat: "VR/AR Experience",
+                    project6_title: "FinSecure App", project6_cat: "Enterprise Software",
+                    about_title: "The Studio",
+                    about_p1: "Nexy Studio operates at the intersection of logic and creativity. We are a collective of engineers and artists committed to building robust, high-performance digital products. Our methodology is rooted in agile development and transparent collaboration, ensuring we deliver solutions that are not only innovative but also precisely aligned with our clients' objectives.",
+                    contact_title: "Initiate Contact", contact_subtitle: "Let's discuss the architecture of your next project.",
+                    form_name_label: "Name", form_name_placeholder: "Your Full Name",
+                    form_email_label: "Email", form_email_placeholder: "project@email.com",
+                    form_submit_button: "Submit Inquiry",
+                    footer_rights: "All rights reserved."
+                },
+                es: {
+                    title: "Nexy Studio - Ingeniería Digital Visionaria",
+                    nav_services: "Servicios", nav_portfolio: "Portafolio", nav_about: "Estudio", nav_contact: "Contacto",
+                    hero_title_1: "Arquitectura Digital.", hero_title_2: "Experiencias Inmersivas.",
+                    hero_subtitle: "Construimos el futuro a través de software de alta precisión y mundos de juego cautivadores. Tu visión, nuestro código.",
+                    hero_cta: "Iniciar Colaboración",
+                    services_title: "Disciplinas Centrales", services_subtitle: "Experiencia especializada en dos dominios clave de la creación digital.",
+                    service_cat1_title: "Software Empresarial",
+                    service1_title: "Plataformas Web", service1_desc: "Aplicaciones de alto rendimiento diseñadas para el crecimiento y la fiabilidad.",
+                    service2_title: "Arquitectura Cloud", service2_desc: "Aprovechando la infraestructura de la nube para máxima eficiencia y seguridad.",
+                    service3_title: "UI/UX para Sistemas", service3_desc: "Diseño intuitivo para datos complejos y flujos de trabajo de usuario.",
+                    service7_title: "Integración de IA y ML", service7_desc: "Incrustando automatización inteligente y análisis en su software.",
+                    service_cat2_title: "Entretenimiento Interactivo",
+                    service4_title: "Desarrollo PC y Consola", service4_desc: "Creando juegos inmersivos con Unreal Engine y Unity.",
+                    service5_title: "Diseño de Sistemas", service5_desc: "Ingeniería de mecánicas y sistemas de juego atractivos.",
+                    service6_title: "Arte y Producción de Activos", service6_desc: "Modelado 3D, animación y efectos visuales para dar vida a los mundos.",
+                    service8_title: "Experiencias VR y AR", service8_desc: "Construyendo aplicaciones inmersivas de nueva generación para nuevas realidades.",
+                    portfolio_title: "Estudios de Caso", portfolio_subtitle: "Una muestra de nuestras capacidades de ingeniería y creatividad.",
+                    filter_all: "Todos", filter_software: "Software", filter_games: "Juegos",
+                    project1_title: "Proyecto: Aethelred", project1_cat: "Desarrollo de Videojuegos",
+                    project2_title: "Synapse BI", project2_cat: "Software Empresarial",
+                    project3_title: "Guerra del Geomante", project3_cat: "Desarrollo de Videojuegos",
+                    project4_title: "Nexus Logistics", project4_cat: "Software Empresarial",
+                    project5_title: "VR MedSim", project5_cat: "Experiencia VR/AR",
+                    project6_title: "App FinSecure", project6_cat: "Software Empresarial",
+                    about_title: "El Estudio",
+                    about_p1: "Nexy Studio opera en la intersección de la lógica y la creatividad. Somos un colectivo de ingenieros y artistas comprometidos con la construcción de productos digitales robustos y de alto rendimiento. Nuestra metodología se basa en el desarrollo ágil y la colaboración transparente, asegurando que entregamos soluciones no solo innovadoras, sino también alineadas con los objetivos de nuestros clientes.",
+                    contact_title: "Iniciar Contacto", contact_subtitle: "Discutamos la arquitectura de tu próximo proyecto.",
+                    form_name_label: "Nombre", form_name_placeholder: "Tu Nombre Completo",
+                    form_email_label: "Correo Electrónico", form_email_placeholder: "proyecto@email.com",
+                    form_submit_button: "Enviar Consulta",
+                    footer_rights: "Todos los derechos reservados."
+                }
+            };
+
+            const langToggle = document.getElementById('lang-toggle');
+            const langText = document.getElementById('lang-text');
+            const setLanguage = (lang) => {
+                document.documentElement.lang = lang;
+                langText.textContent = lang.toUpperCase();
+                localStorage.setItem('language', lang);
+                document.querySelectorAll('[data-lang-key]').forEach(el => {
+                    const key = el.getAttribute('data-lang-key');
+                    const translation = translations[lang]?.[key];
+                    if(translation){
+                        if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = translation;
+                        else el.textContent = translation;
+                    }
+                });
+            };
+            langToggle.addEventListener('click', () => {
+                const newLang = (localStorage.getItem('language') || 'en') === 'en' ? 'es' : 'en';
+                setLanguage(newLang);
+            });
+            const initialLang = localStorage.getItem('language') || (navigator.language.split('-')[0] === 'es' ? 'es' : 'en');
+            setLanguage(initialLang);
+
+            // --- PORTFOLIO FILTER ---
+            const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const filter = button.getAttribute('data-filter');
+                    portfolioItems.forEach((item, index) => {
+                        const isVisible = filter === 'all' || item.getAttribute('data-category') === filter;
+                        item.style.transitionDelay = isVisible ? `${index * 50}ms` : '0ms';
+                        if (isVisible) item.classList.remove('hidden'); else item.classList.add('hidden');
+                    });
+                });
+            });
+            document.querySelector('.portfolio-filter-btn[data-filter="all"]').click();
+
+            // --- SCROLL ANIMATIONS ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('section-visible');
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.animated-section').forEach(section => {
+                section.classList.add('section-hidden');
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
