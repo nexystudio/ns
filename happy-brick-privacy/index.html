@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='10' width='26' height='16' rx='3' fill='%23e63946'/%3E%3Crect x='34' y='10' width='26' height='16' rx='3' fill='%23f77f00'/%3E%3Crect x='4' y='30' width='26' height='16' rx='3' fill='%23f2b705'/%3E%3Crect x='34' y='30' width='26' height='16' rx='3' fill='%231f9d8a'/%3E%3C/svg%3E">
+  <title>Happy Brick — Privacy Policy & Terms</title>
+  <meta name="description" content="Privacy Policy and Terms and Conditions of Happy Brick - Nexy Studio" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #14213d;
+      --ink-soft: #34425f;
+      --paper: #f1f6ff;
+      --line: #d3deef;
+      --night: #14213d;
+      --red: #e63946;
+      --orange: #f77f00;
+      --yellow: #f2b705;
+      --green: #1f9d8a;
+      --blue: #3a6df0;
+      --link: #2b55cf;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink-soft);
+      font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 17px; line-height: 1.7;
+    }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+
+    /* Barra superior */
+    .topbar { position: sticky; top: 0; z-index: 20; background: var(--night); border-bottom: 1px solid rgba(255,255,255,.1); }
+    .topbar-in { max-width: 1120px; margin: 0 auto; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo { width: 40px; height: 32px; display: block; }
+    .lang { display: flex; align-items: center; gap: 12px; }
+    #langLabel { color: #aebbd6; font-size: 14px; }
+    .seg { display: flex; padding: 3px; border-radius: 999px; background: rgba(255,255,255,.1); }
+    .lang-btn {
+      border: 0; cursor: pointer; font: 700 14px 'Nunito Sans', sans-serif; padding: 6px 16px;
+      border-radius: 999px; background: transparent; color: #c9d4ea; transition: background .2s, color .2s;
+    }
+    .lang-btn:hover { color: #fff; }
+    .lang-btn.active { background: var(--yellow); color: var(--ink); }
+
+    /* Hero */
+    .hero { background: var(--night); color: #fff; overflow: hidden; }
+    .hero-in { max-width: 1120px; margin: 0 auto; padding: 56px 24px 72px; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 32px; }
+    .hero h1 { margin: 0; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: clamp(44px, 7vw, 84px); line-height: 1; letter-spacing: -.01em; }
+    .hero p { margin: 18px 0 0; font-size: clamp(18px, 2.2vw, 24px); color: #c9d4ea; max-width: 30ch; }
+    .game { width: 100%; max-width: 380px; justify-self: end; height: auto; }
+    .game .brick { animation: drop .5s ease backwards; animation-delay: var(--d, 0s); }
+    @keyframes drop { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: none; } }
+
+    /* Cuerpo */
+    .layout { max-width: 1120px; margin: 0 auto; padding: 48px 24px 24px; display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 56px; align-items: start; }
+    nav.side { position: sticky; top: 84px; }
+    nav.side ul { list-style: none; margin: 0; padding: 0; }
+    nav.side > ul > li + li { margin-top: 18px; }
+    .nav-link { display: block; padding: 6px 0; text-decoration: none; font: 600 20px 'Fredoka', sans-serif; color: var(--ink); }
+    .nav-link:hover, .nav-link.active { color: var(--link); }
+    .toc { margin-top: 6px !important; border-left: 2px solid var(--line); }
+    .toc a { display: block; padding: 5px 0 5px 16px; margin-left: -2px; border-left: 2px solid transparent; font-size: 15px; line-height: 1.4; color: var(--ink-soft); text-decoration: none; }
+    .toc a:hover { color: var(--ink); }
+    .toc a.active { color: var(--ink); font-weight: 700; border-left-color: var(--c, var(--blue)); }
+
+    .doc { max-width: 68ch; scroll-margin-top: 84px; }
+    .doc h2 { margin: 0 0 14px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: clamp(32px, 4.4vw, 46px); line-height: 1.1; color: var(--ink); scroll-margin-top: 84px; }
+    .doc h2 + p { font-size: 19px; color: var(--ink); margin-bottom: 8px; }
+    .doc h3 { --c: var(--red); position: relative; margin: 36px 0 8px; padding-left: 36px; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 23px; line-height: 1.25; color: var(--ink); scroll-margin-top: 84px; }
+    .doc h3::before { content: ""; position: absolute; left: 0; top: .38em; width: 24px; height: 13px; border-radius: 3px; background: var(--c); }
+    .doc h3:nth-of-type(5n+2) { --c: var(--orange); }
+    .doc h3:nth-of-type(5n+3) { --c: var(--yellow); }
+    .doc h3:nth-of-type(5n+4) { --c: var(--green); }
+    .doc h3:nth-of-type(5n+5) { --c: var(--blue); }
+    .doc p { margin: 0 0 12px; }
+    .doc strong { color: var(--ink); }
+    .doc a { color: var(--link); text-underline-offset: 3px; text-decoration-thickness: 1.5px; font-weight: 700; word-break: break-word; }
+    .doc a:hover { color: var(--red); }
+
+    .doc ol { list-style: none; counter-reset: t; margin: 18px 0 0; padding: 0; }
+    .doc ol li { counter-increment: t; position: relative; padding: 0 0 18px 48px; min-height: 36px; }
+    .doc ol li::before {
+      content: counter(t); position: absolute; left: 0; top: 0; width: 32px; height: 32px; border-radius: 9px;
+      display: grid; place-items: center; background: var(--red); color: #fff; font: 600 16px 'Fredoka', sans-serif;
+    }
+    .doc ol li:nth-child(5n+2)::before { background: var(--orange); }
+    .doc ol li:nth-child(5n+3)::before { background: var(--yellow); color: var(--ink); }
+    .doc ol li:nth-child(5n+4)::before { background: var(--green); }
+    .doc ol li:nth-child(5n+5)::before { background: var(--blue); }
+
+    .doc .closing { margin-top: 24px; padding: 14px 18px; border-left: 5px solid var(--yellow); background: #fff; border-radius: 0 12px 12px 0; color: var(--ink); }
+
+    .sep { border: 0; height: 12px; margin: 56px 0; max-width: 68ch;
+      background: repeating-linear-gradient(90deg, var(--red) 0 44px, transparent 44px 50px, var(--orange) 50px 94px, transparent 94px 100px, var(--yellow) 100px 144px, transparent 144px 150px, var(--green) 150px 194px, transparent 194px 200px, var(--blue) 200px 244px, transparent 244px 250px);
+      border-radius: 3px; }
+
+    footer { max-width: 1120px; margin: 0 auto; padding: 40px 24px 56px; font-size: 14px; color: #6c7a99; }
+    footer p { margin: 0; border-top: 1px solid var(--line); padding-top: 24px; }
+
+    @media (max-width: 860px) {
+      .hero-in { grid-template-columns: 1fr; padding: 36px 24px 48px; }
+      .game { max-width: 220px; justify-self: start; order: -1; }
+      .layout { grid-template-columns: 1fr; gap: 28px; padding-top: 28px; }
+      nav.side { position: static; }
+      nav.side > ul { display: flex; gap: 10px; flex-wrap: wrap; }
+      nav.side > ul > li + li { margin-top: 0; }
+      .nav-link { padding: 8px 18px; border-radius: 999px; background: #dfe8fa; font-size: 17px; }
+      .toc { display: none; }
+      #langLabel { display: none; }
+      .sep { margin: 44px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .game .brick { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-in">
+      <svg class="logo" viewBox="0 0 40 32" role="img" aria-label="Happy Brick">
+        <rect x="1" y="2" width="17" height="10" rx="2.5" fill="#e63946"/>
+        <rect x="22" y="2" width="17" height="10" rx="2.5" fill="#f77f00"/>
+        <rect x="1" y="15" width="17" height="10" rx="2.5" fill="#f2b705"/>
+        <rect x="22" y="15" width="17" height="10" rx="2.5" fill="#1f9d8a"/>
+        <rect x="9" y="28" width="22" height="3" rx="1.5" fill="#fff"/>
+      </svg>
+      <div class="lang">
+        <div id="langLabel">Language</div>
+        <div class="seg">
+          <button class="lang-btn" data-lang="es" id="btn-es">Español</button>
+          <button class="lang-btn" data-lang="en" id="btn-en">English</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-in">
+      <div>
+        <h1 id="siteTitle">Happy Brick</h1>
+        <p id="siteSubtitle">Privacy Policy and Terms and Conditions</p>
+      </div>
+      <svg class="game" viewBox="0 0 360 300" aria-hidden="true">
+        <g id="bricks"></g>
+        <circle cx="205" cy="206" r="10" fill="#fff"/>
+        <path d="M205 196 L196 168" stroke="#fff" stroke-opacity=".35" stroke-width="6" stroke-linecap="round"/>
+        <rect x="132" y="262" width="104" height="16" rx="8" fill="#f2b705"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="layout">
+    <nav class="side">
+      <ul>
+        <li><a href="#privacy" class="nav-link" id="nav-privacy">Privacy Policy</a></li>
+        <li><a href="#terms" class="nav-link" id="nav-terms">Terms and Conditions</a></li>
+        <li><a href="#contact" class="nav-link" id="nav-contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <article id="privacy" class="doc"></article>
+      <hr class="sep" />
+      <article id="terms" class="doc"></article>
+      <hr class="sep" />
+      <article id="contact" class="doc"></article>
+    </main>
+  </div>
+
+  <footer>
+    <p id="footerText">© Nexy Studio — Happy Brick</p>
+  </footer>
+
+  <script>
+    const CONTENT = {
+      en: {
+        docTitle: 'Happy Brick — Privacy Policy & Terms',
+        siteTitle: 'Happy Brick',
+        siteSubtitle: 'Privacy Policy and Terms and Conditions',
+        langLabel: 'Language',
+        nav_privacy: 'Privacy Policy',
+        nav_terms: 'Terms and Conditions',
+        nav_contact: 'Contact',
+        privacy: `
+          <h2>Privacy Policy</h2>
+          <p>At Happy Brick, we take our users' privacy very seriously and are committed to protecting it. Below is our privacy policy.</p>
+
+          <h3>Information Collection</h3>
+          <p>Happy Brick does not collect any personal information from users. The game does not use cookies, does not collect IP addresses, and does not track user behavior.</p>
+
+          <h3>In-Game Purchases</h3>
+          <p>Happy Brick does not offer in-game purchases. The game is completely free, and no payment is required to play.</p>
+
+          <h3>Information Security</h3>
+          <p>We are committed to protecting our users' information. Happy Brick does not collect personal information, so we do not store or protect any personal data.</p>
+
+          <h3>Encryption of Data in Transit</h3>
+          <p>Some communications within Happy Brick may not be encrypted in transit. While we strive to use secure protocols such as HTTPS, certain connections may not be fully encrypted. Users are advised to connect to secure networks when using the game.</p>
+        `,
+        terms: `
+          <h2>Terms and Conditions</h2>
+          <p>By downloading and using Happy Brick, you agree to the following terms and conditions:</p>
+          <ol>
+            <li>Happy Brick is owned and operated by Nexy Studio. All rights reserved.</li>
+            <li>Happy Brick is a free game, and no in-game purchases are required to play.</li>
+            <li>Users of Happy Brick agree not to use the game for any illegal or unauthorized activity.</li>
+            <li>Users are responsible for their own use of Happy Brick. Nexy Studio is not responsible for any damage or loss caused by the use of the game.</li>
+            <li>The use of Happy Brick may be subject to interruptions or technical errors. Nexy Studio does not guarantee that the game will be free from interruptions or technical issues.</li>
+            <li>Nexy Studio reserves the right to suspend or terminate the account of any user who violates these terms and conditions.</li>
+            <li>By using Happy Brick, users agree that any dispute related to the use of the game will be resolved through binding arbitration, waiving their right to a jury trial.</li>
+            <li>Nexy Studio reserves the right to modify these terms and conditions at any time without prior notice. Changes will take effect immediately after being published in the game.</li>
+            <li>These terms and conditions are governed by the laws of the state, and any dispute will be subject to the exclusive jurisdiction of the courts.</li>
+          </ol>
+        `,
+        contact: `
+          <h2>Contact</h2>
+          <p>If you have questions, contact us at: <a href="mailto:support@nexystudio.com">support@nexystudio.com</a></p>
+          <p class="closing">By using Happy Brick, you agree to this privacy policy and any subsequent changes to the terms and conditions.</p>
+        `,
+        footer: '© Nexy Studio — Happy Brick'
+      },
+
+      es: {
+        docTitle: 'Happy Brick — Política de Privacidad y Términos',
+        siteTitle: 'Happy Brick',
+        siteSubtitle: 'Política de Privacidad y Términos y Condiciones',
+        langLabel: 'Idioma',
+        nav_privacy: 'Política de Privacidad',
+        nav_terms: 'Términos y Condiciones',
+        nav_contact: 'Contacto',
+        privacy: `
+          <h2>Política de Privacidad</h2>
+          <p>En Happy Brick nos tomamos muy en serio la privacidad de nuestros usuarios y estamos comprometidos a protegerla. A continuación se presenta nuestra política de privacidad.</p>
+
+          <h3>Recopilación de información</h3>
+          <p>Happy Brick no recopila ninguna información personal de los usuarios. El juego no utiliza cookies, no recopila direcciones IP y no rastrea el comportamiento de los usuarios.</p>
+
+          <h3>Compras dentro del juego</h3>
+          <p>Happy Brick no ofrece compras dentro del juego. El juego es completamente gratuito y no se requiere ningún pago para jugar.</p>
+
+          <h3>Seguridad de la información</h3>
+          <p>Estamos comprometidos a proteger la información de nuestros usuarios. Happy Brick no recopila información personal, por lo que no almacenamos ni protegemos ningún dato personal.</p>
+
+          <h3>Cifrado de datos en tránsito</h3>
+          <p>Algunas comunicaciones dentro de Happy Brick podrían no estar cifradas en tránsito. Aunque nos esforzamos por utilizar protocolos seguros como HTTPS, ciertas conexiones podrían no estar completamente cifradas. Se recomienda a los usuarios conectarse a redes seguras al usar el juego.</p>
+        `,
+        terms: `
+          <h2>Términos y Condiciones</h2>
+          <p>Al descargar y usar Happy Brick, usted acepta los siguientes términos y condiciones:</p>
+          <ol>
+            <li>Happy Brick es propiedad de Nexy Studio y es operado por esta. Todos los derechos reservados.</li>
+            <li>Happy Brick es un juego gratuito y no se requieren compras dentro del juego para jugar.</li>
+            <li>Los usuarios de Happy Brick se comprometen a no usar el juego para ninguna actividad ilegal o no autorizada.</li>
+            <li>Los usuarios son responsables de su propio uso de Happy Brick. Nexy Studio no se hace responsable por ningún daño o pérdida causados por el uso del juego.</li>
+            <li>El uso de Happy Brick puede estar sujeto a interrupciones o errores técnicos. Nexy Studio no garantiza que el juego esté libre de interrupciones o problemas técnicos.</li>
+            <li>Nexy Studio se reserva el derecho de suspender o cancelar la cuenta de cualquier usuario que infrinja estos términos y condiciones.</li>
+            <li>Al usar Happy Brick, los usuarios aceptan que cualquier disputa relacionada con el uso del juego se resolverá mediante arbitraje vinculante, renunciando a su derecho a un juicio con jurado.</li>
+            <li>Nexy Studio se reserva el derecho de modificar estos términos y condiciones en cualquier momento sin previo aviso. Los cambios entrarán en vigor inmediatamente después de ser publicados en el juego.</li>
+            <li>Estos términos y condiciones se rigen por las leyes del estado, y cualquier disputa estará sujeta a la jurisdicción exclusiva de los tribunales.</li>
+          </ol>
+        `,
+        contact: `
+          <h2>Contacto</h2>
+          <p>Si tiene dudas, escríbanos a: <a href="mailto:support@nexystudio.com">support@nexystudio.com</a></p>
+          <p class="closing">Al usar Happy Brick, usted acepta esta política de privacidad y cualquier cambio posterior en los términos y condiciones.</p>
+        `,
+        footer: '© Nexy Studio — Happy Brick'
+      }
+    };
+
+    // Ladrillos del hero (decoración)
+    (function drawBricks() {
+      const colors = ['#e63946', '#f77f00', '#f2b705', '#1f9d8a'];
+      let html = '';
+      for (let r = 0; r < 4; r++) {
+        for (let c = 0; c < 5; c++) {
+          if (r === 3 && c === 2) continue; // ladrillo ya golpeado
+          const x = 13 + c * 68, y = 20 + r * 32;
+          html += '<rect class="brick" style="--d:' + ((r * 5 + c) * 0.04).toFixed(2) + 's" x="' + x + '" y="' + y + '" width="62" height="24" rx="5" fill="' + colors[r] + '"/>';
+        }
+      }
+      document.getElementById('bricks').innerHTML = html;
+    })();
+
+    const COLORS = ['var(--red)', 'var(--orange)', 'var(--yellow)', 'var(--green)', 'var(--blue)'];
+    let observer = null;
+
+    // Índice lateral generado con los títulos existentes (sin texto nuevo)
+    function buildToc() {
+      document.querySelectorAll('nav.side .toc').forEach(el => el.remove());
+      if (observer) observer.disconnect();
+      const targets = [];
+      ['privacy', 'terms', 'contact'].forEach(id => {
+        const li = document.querySelector('nav.side a[href="#' + id + '"]').parentElement;
+        const heads = document.querySelectorAll('#' + id + ' h3');
+        if (heads.length) {
+          const ul = document.createElement('ul');
+          ul.className = 'toc';
+          heads.forEach((h, i) => {
+            h.id = id + '-' + (i + 1);
+            const a = document.createElement('a');
+            a.href = '#' + h.id;
+            a.textContent = h.textContent;
+            a.style.setProperty('--c', COLORS[i % 5]);
+            ul.appendChild(document.createElement('li')).appendChild(a);
+            targets.push(h);
+          });
+          li.appendChild(ul);
+        }
+        const h2 = document.querySelector('#' + id + ' h2');
+        if (h2) targets.push(h2);
+      });
+      observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const art = e.target.closest('article').id;
+          document.querySelectorAll('.nav-link').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + art));
+          document.querySelectorAll('.toc a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+        });
+      }, { rootMargin: '-90px 0px -65% 0px' });
+      targets.forEach(t => observer.observe(t));
+    }
+
+    function setLanguage(lang) {
+      const d = CONTENT[lang] || CONTENT.en;
+      document.title = d.docTitle;
+      document.getElementById('siteTitle').textContent = d.siteTitle;
+      document.getElementById('siteSubtitle').textContent = d.siteSubtitle;
+      document.getElementById('langLabel').textContent = d.langLabel;
+      document.getElementById('nav-privacy').textContent = d.nav_privacy;
+      document.getElementById('nav-terms').textContent = d.nav_terms;
+      document.getElementById('nav-contact').textContent = d.nav_contact;
+      document.getElementById('privacy').innerHTML = d.privacy;
+      document.getElementById('terms').innerHTML = d.terms;
+      document.getElementById('contact').innerHTML = d.contact;
+      document.getElementById('footerText').textContent = d.footer;
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+      document.documentElement.lang = (lang === 'es') ? 'es' : 'en';
+      try { localStorage.setItem('happybrick_lang', lang); } catch (e) {}
+      buildToc();
+    }
+
+    function detectAndApply() {
+      let saved = null;
+      try { saved = localStorage.getItem('happybrick_lang'); } catch (e) {}
+      if (saved) { return setLanguage(saved); }
+      const nav = navigator.languages && navigator.languages.length ? navigator.languages[0] : (navigator.language || 'en');
+      setLanguage(String(nav).toLowerCase().startsWith('es') ? 'es' : 'en');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLanguage(btn.dataset.lang)));
+      detectAndApply();
+    });
+  </script>
+</body>
+</html>
